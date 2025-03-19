@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calories Burnt Prediction</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <div class="logo">🔥 FitAI</div>
+      <!-- <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#" class="login-btn">Login</a></li>
+      </ul> -->
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <h1 class="title">Predict Your <span class="highlight">Calories Burnt</span></h1>
+    <p class="subtitle">Advanced AI-powered predictions for your workouts.</p>
+  </header>
+
+  <!-- Prediction Form -->
+  <div class="form-container">
+    <h2 class="form-title">Enter Your Details</h2>
+    <form action="/predict" method="post">
+
+      <div class="input-group">
+        <label for="gender">Gender (0 = Male, 1 = Female)</label>
+        <input type="number" name="Gender" id="gender" min="0" max="1" required>
+      </div>
+
+      <div class="input-group">
+        <label for="age">Age (years)</label>
+        <input type="number" name="Age" id="age" required>
+      </div>
+
+      <div class="input-group">
+        <label for="height">Height (cm)</label>
+        <input type="number" name="Height" id="height" required>
+      </div>
+
+      <div class="input-group">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" name="Weight" id="weight" required>
+      </div>
+
+      <div class="input-group">
+        <label for="duration">Workout Duration (min)</label>
+        <input type="number" name="Duration" id="duration" required>
+      </div>
+
+      <div class="input-group">
+        <label for="heartRate">Heart Rate (bpm)</label>
+        <input type="number" name="HeartRate" id="heartRate" required>
+      </div>
+
+      <div class="input-group">
+        <label for="bodyTemperature">Body Temperature (°C)</label>
+        <input type="number" name="BodyTemperature" id="bodyTemperature" step="0.1" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Predict 🔥</button>
+    </form>
+
+    {% if pred %}
+    <h3 class="result">🔥 {{ pred }}</h3>
+    {% endif %}
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Powered by <span class="highlight">FitAI</span></p>
+  </footer>
+
+</body>
+
+</html>
