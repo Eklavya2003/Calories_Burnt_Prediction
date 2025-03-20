@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Custom CSS -->
   <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
@@ -20,65 +23,74 @@
   <nav class="nav-bar">
     <div class="nav-container">
       <div class="logo">🔥 FitAI</div>
-      <!-- <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#" class="login-btn">Login</a></li>
-      </ul> -->
+      <h1 class="title">Predict Your <span class="highlight">Calories Burnt</span></h1>
+      <p class="subtitle">Advanced AI-powered predictions for your workouts.</p>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero-section">
-    <h1 class="title">Predict Your <span class="highlight">Calories Burnt</span></h1>
-    <p class="subtitle">Advanced AI-powered predictions for your workouts.</p>
-  </header>
+
+  <!-- Carousel -->
+  <div id="fitnessCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://c8.alamy.com/comp/DKB901/weightlifter-in-dark-gym-bench-press-DKB901.jpg"
+          class="d-block w-100" alt="Fitness Image">
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3ltfGVufDB8fDB8fHww"
+          class="d-block w-100" alt="Treadmill Image">
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGd5bXxlbnwwfHwwfHx8MA%3D%3D"
+          class="d-block w-100" alt="Dumbbell Image">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#fitnessCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#fitnessCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
   <!-- Prediction Form -->
   <div class="form-container">
     <h2 class="form-title">Enter Your Details</h2>
     <form action="/predict" method="post">
-
       <div class="input-group">
         <label for="gender">Gender (0 = Male, 1 = Female)</label>
         <input type="number" name="Gender" id="gender" min="0" max="1" required>
       </div>
-
       <div class="input-group">
         <label for="age">Age (years)</label>
         <input type="number" name="Age" id="age" required>
       </div>
-
       <div class="input-group">
         <label for="height">Height (cm)</label>
         <input type="number" name="Height" id="height" required>
       </div>
-
       <div class="input-group">
         <label for="weight">Weight (kg)</label>
         <input type="number" name="Weight" id="weight" required>
       </div>
-
       <div class="input-group">
         <label for="duration">Workout Duration (min)</label>
         <input type="number" name="Duration" id="duration" required>
       </div>
-
       <div class="input-group">
         <label for="heartRate">Heart Rate (bpm)</label>
         <input type="number" name="HeartRate" id="heartRate" required>
       </div>
-
       <div class="input-group">
         <label for="bodyTemperature">Body Temperature (°C)</label>
         <input type="number" name="BodyTemperature" id="bodyTemperature" step="0.1" required>
       </div>
-
       <button type="submit" class="submit-btn">Predict 🔥</button>
     </form>
-
     {% if pred %}
     <h3 class="result">🔥 {{ pred }}</h3>
     {% endif %}
@@ -89,6 +101,8 @@
     <p>Powered by <span class="highlight">FitAI</span></p>
   </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
