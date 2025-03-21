@@ -1,2 +1,7 @@
-streamlit
 flask
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+xgboost
