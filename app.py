@@ -81,4 +81,6 @@ def predict():
         return render_template('Calories_Burnt_Prediction.html', pred=f'Error: {str(e)}')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, use_reloader=False)
+
+
